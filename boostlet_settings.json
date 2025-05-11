@@ -1,0 +1,10 @@
+{
+    "cpu_threshold": "75",
+    "ram_threshold": "70",
+    "alert_enabled": false,
+    "apply_enabled": false,
+    "autostart_enabled": true,
+    "interval_enabled": false,
+    "interval_minutes": "",
+    "both_required": true
+}
