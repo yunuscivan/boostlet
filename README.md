@@ -1,4 +1,5 @@
-# Boostlet – Intelligent Resource Optimizer ( including its website )
+# Boostlet – Intelligent Resource Optimizer 
+## ( including its website )
 
 Boostlet is a lightweight desktop utility that helps users regain system performance when CPU and RAM usage gets high.  It's designed to act only when necessary, not to run permanently in the background. ( now only the Windows version ) Downloadable from its website !
 
@@ -10,12 +11,20 @@ Systems with 8 GB RAM or more that have been running for hours, PCs frequently u
 
 To download it : http://www.boostlet.app/ 
 
+## How It Works
+
+1. Boostlet monitors CPU and RAM usage.
+2. When user-defined thresholds are exceeded:
+   - It either alerts the user, or cleans RAM automatically. ( and the user can also add deep Ram cleaning )*
+3. The cleaning process trims memory from running processes (working sets).
+* Optional: It performs deep cleaning using an external tool (`EmptyStandbyList.exe`) to release cached memory.
+
 ---
 
 ## Key Features
 
 - **Manual & Automatic Cleaning: Clean memory with one click ( on the window or on system tray in Windows ), or let Boostlet react automatically when usage thresholds are exceeded.
-- **Deep RAM Cleaning: Optionally frees cached and standby memory for deeper optimization.
+- **Deep RAM Cleaning: Optionally frees cached and standby memory for deeper optimization, additionally. 
 - **Threshold-Based Triggers: Set custom CPU and RAM thresholds that define when Boostlet should act.
 - **Interval Mode: Schedule RAM cleanup every X minutes, acting like an automatic background cleaner.
 - **System Info View: Displays CPU model, OS, RAM amount, and uptime.
@@ -23,9 +32,7 @@ To download it : http://www.boostlet.app/
 
 ---
 
-## Technologies Used
-
-### 🧰 Technologies Used
+### Technologies Used
 
 | Technology / Library         | Description                                                               |
 |-----------------------------|---------------------------------------------------------------------------|
@@ -41,7 +48,7 @@ To download it : http://www.boostlet.app/
 | NSIS (Nullsoft Installer)   | Used to build the installer for full deployment (in website folder)       |
 
 
-## 💻 Interface Overview
+## Interface Overview
 
 ### Main Window
 - Set CPU/RAM thresholds
@@ -71,16 +78,7 @@ To download it : http://www.boostlet.app/
 
 ---
 
-## How It Works
-
-1. Boostlet monitors CPU and RAM usage.
-2. When user-defined thresholds are exceeded:
-   - It either alerts the user, or cleans RAM automatically.
-3. The cleaning process trims memory from running processes (working sets).
-4. Optional: It performs deep cleaning using an external tool (`EmptyStandbyList.exe`) to release cached memory.
-
----
-### Ram Cleaning and How
+## Ram Cleaning and How
 
 Boostlet uses Python's ctypes module to call Windows API functions that empty the working sets of running processes.Working sets are portions of a process's memory that are currently resident in physical RAM.
 
@@ -88,7 +86,7 @@ When a process does not use some of its memory pages frequently, those pages can
 
 It requires administrator privileges.
 
-## What is `EmptyStandbyList.exe`? ( Deep Ram Cleaning Feature )
+### What is `EmptyStandbyList.exe`? ( Deep Ram Cleaning Feature )
 
 `EmptyStandbyList.exe` is a lightweight utility used to clear the standby memory list on Windows systems. Standby memory consists of cached pages that are no longer actively in use but are still held in RAM.
 
@@ -96,7 +94,22 @@ Boostlet uses this tool optionally when Deep RAM Cleaning is enabled. It require
 
 This tool is open-source and originally provided by Wj32 (https://wj32.org/wp/software/empty-standby-list/). It is included in Boostlet for convenience and transparency.
 
-### 📁 Folder Structure
+## The Website
+
+The Boostlet website is designed as a simple and responsive static site to present and support the Boostlet application. It was built using the following technologies:
+
+- HTML files and CSS files (2 different style sheets) : Used for the structure and visual styling of all pages, giving the website a clean, modern look with a consistent layout and color theme.
+- PHP (feedback.php): Used to handle the contact form. When a user submits feedback via the `feedback.html` page, the form data (name, email, and message) is processed by a PHP script that sends the information directly to the developer’s email address. This allows for easy user interaction without needing a full backend framework.
+
+- `index.html` – It provides a short introduction to Boostlet, lists key features, and includes the Windows installer download link.
+- `guide.html` – A documentation page that explains how to use Boostlet, recommended settings, and what each option does.
+- `feedback.html` – A simple contact form where users can enter their name, email, and message. It is connected to the PHP script mentioned above (`feedback.php`) to deliver submissions to the developer.
+- `about.html` – A short bio of the developer with a link to the personal website.
+
+The website www.boostlet.app is hosted on Hostinger and maintained using its web-based file manager. This allows quick manual updates by editing HTML, CSS, and PHP files directly.
+
+
+### Folder Structure
 
 ```text
 Boostlet/
